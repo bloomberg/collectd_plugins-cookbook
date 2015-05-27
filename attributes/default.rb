@@ -17,10 +17,10 @@
 # limitations under the License.
 #
 
-default['collectd-plugins']['rrdtool']['options']['DataDir'] = '/etc/collectd.d/rrd'
-default['collectd-plugins']['syslog']['options']['LogLevel'] = 'Info'
-default['collectd-plugins']['interface']['options']['Interface'] = 'lo'
-default['collectd-plugins']['interface']['options']['IgnoreSelected'] = true
-default['collectd-plugins']['df']['options']['ReportReserved'] = false
-default['collectd-plugins']['df']['options']['IgnoreSelected'] = true
-default['collectd-plugins']['df']['options']['FSType'] = %w(proc sysfs fusectl debugfs securityfs devtmpfs devpts tmpfs)
+default['collectd-plugins']['rrdtool']['options']['data_dir'] = '/etc/collectd.d/rrd'
+default['collectd-plugins']['syslog']['options']['log_level'] = 'info'
+default['collectd-plugins']['interface']['options']['interface'] = 'lo'
+default['collectd-plugins']['interface']['options']['ignore_selected'] = true
+default['collectd-plugins']['df']['options']['report_reserved'] = false
+default['collectd-plugins']['df']['options']['ignore_selected'] = true
+default['collectd-plugins']['df']['options']['f_s_type'] = %w(proc sysfs fusectl debugfs securityfs devtmpfs devpts tmpfs)
