@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: collectd_plugins
-# Recipe:: rrdtool
+# Recipe:: interface
 #
 # Copyright 2010, Atari, Inc
 #
@@ -17,8 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe "collectd"
-
-collectd_plugin 'rrdtool' do
-  options node['collectd-plugins']['rrdtool']['options']
-end
+default['collectd-plugins']['rrdtool']['options']['DataDir'] = '/etc/collectd.d/rrd'
+default['collectd-plugins']['syslog']['options']['LogLevel'] = 'Info'
+default['collectd-plugins']['interface']['options']['Interface'] = 'lo'
+default['collectd-plugins']['interface']['options']['IgnoreSelected'] = true
+default['collectd-plugins']['df']['options']['ReportReserved'] = false
+default['collectd-plugins']['df']['options']['IgnoreSelected'] = true
+default['collectd-plugins']['df']['options']['FSType'] = %w(proc sysfs fusectl debugfs securityfs devtmpfs devpts tmpfs)
