@@ -20,5 +20,7 @@
 include_recipe "collectd"
 
 collectd_plugin "df" do
+  user node['collectd']['service_user']
+  group node['collectd']['service_group']
   options node['collectd-plugins']['df']['options']
 end
