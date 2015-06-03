@@ -1,0 +1,24 @@
+DEPENDENCIES
+  collectd
+    git: https://github.com/johnbellone/collectd-cookbook
+    revision: 381223d5cec11749ffc6dee474824bc12f51d319
+  collectd_plugins
+    path: .
+    metadata: true
+
+GRAPH
+  chef-sugar (3.1.0)
+  collectd (2.0.0)
+    chef-sugar (>= 0.0.0)
+    httpd (>= 0.0.0)
+    poise-service (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  collectd_plugins (2.0.0)
+    collectd (~> 2.0)
+  httpd (0.2.12)
+  poise (2.0.1)
+  poise-service (1.0.1)
+    poise (~> 2.0)
+  yum (3.6.0)
+  yum-epel (0.6.0)
+    yum (~> 3.0)
