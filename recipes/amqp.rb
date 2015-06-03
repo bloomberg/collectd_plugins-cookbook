@@ -1,8 +1,9 @@
 #
 # Cookbook Name:: collectd_plugins
-# Recipe:: rrdtool
+# Recipe:: default
 #
 # Copyright 2010, Atari, Inc
+# Copyright 2015, Bloomberg Finance L.P.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,11 +18,11 @@
 # limitations under the License.
 #
 
-include_recipe "collectd"
+include_recipe 'collectd'
 
-collectd_plugin 'rrdtool' do
+collectd_plugin 'amqp' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['rrdtool']['options'] unless node['collectd-plugins']['rrdtool'].nil?
+  options node['collectd-plugins']['amqp']['options'] unless node['collectd-plugins']['amqp'].nil?
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end

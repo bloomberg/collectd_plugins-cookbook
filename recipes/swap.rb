@@ -22,5 +22,6 @@ include_recipe "collectd"
 collectd_plugin "swap" do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['swap']['options']
+  options node['collectd-plugins']['swap']['options'] unless node['collectd-plugins']['swap'].nil?
+  notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end
