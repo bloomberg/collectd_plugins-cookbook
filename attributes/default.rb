@@ -6,10 +6,10 @@
 # Copyright 2015, Bloomberg Finance L.P.
 #
 
-default['collectd-plugins']['rrdtool']['options']['data_dir'] = '/etc/collectd.d/rrd'
-default['collectd-plugins']['syslog']['options']['log_level'] = 'info'
-default['collectd-plugins']['interface']['options']['interface'] = 'lo'
-default['collectd-plugins']['interface']['options']['ignore_selected'] = true
-default['collectd-plugins']['df']['options']['report_reserved'] = false
-default['collectd-plugins']['df']['options']['ignore_selected'] = true
-default['collectd-plugins']['df']['options']['f_s_type'] = %w(proc sysfs fusectl debugfs securityfs devtmpfs devpts tmpfs)
+default['collectd-plugins']['rrdtool']['data_dir'] = '/etc/collectd.d/rrd'
+default['collectd-plugins']['syslog']['log_level'] = 'info'
+default['collectd-plugins']['interface']['interface'] = 'lo'
+default['collectd-plugins']['interface']['ignore_selected'] = true
+default['collectd-plugins']['df']['report_reserved'] = false
+default['collectd-plugins']['df']['ignore_selected'] = true
+default['collectd-plugins']['df']['f_s_type'] = %w(proc sysfs fusectl debugfs securityfs devtmpfs devpts tmpfs)

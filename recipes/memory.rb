@@ -10,6 +10,6 @@ include_recipe 'collectd::default'
 collectd_plugin 'memory' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['memory']['options'] unless node['collectd-plugins']['memory'].nil?
+  options node['collectd-plugins']['memory']
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end

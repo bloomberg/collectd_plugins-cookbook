@@ -10,6 +10,6 @@ include_recipe 'collectd::default'
 collectd_plugin 'write_tsdb' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['write_tsdb']['options'] unless node['collectd-plugins']['write_tsdb'].nil?
+  options node['collectd-plugins']['write_tsdb']
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end

@@ -10,6 +10,6 @@ include_recipe 'collectd::default'
 collectd_plugin 'write_graphite' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['write_graphite']['options'] unless node['collectd-plugins']['write_graphite'].nil?
+  options node['collectd-plugins']['write_graphite']
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end

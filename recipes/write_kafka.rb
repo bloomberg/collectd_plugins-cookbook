@@ -10,6 +10,6 @@ include_recipe 'collectd::default'
 collectd_plugin 'write_kafka' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['write_kafka']['options'] unless node['collectd-plugins']['write_kafka'].nil?
+  options node['collectd-plugins']['write_kafka']
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end
