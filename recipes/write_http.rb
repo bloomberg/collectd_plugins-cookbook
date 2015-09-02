@@ -7,9 +7,9 @@
 #
 include_recipe 'collectd::default'
 
-collectd_plugin 'redis' do
+collectd_plugin 'write_http' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
-  options node['collectd-plugins']['redis']['options'] unless node['collectd-plugins']['redis'].nil?
+  options node['collectd-plugins']['write_http']['options'] unless node['collectd-plugins']['write_http'].nil?
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end
