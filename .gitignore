@@ -53,5 +53,3 @@ vendor
 .vagrant
 Berksfile.lock
 coverage/
-
-
