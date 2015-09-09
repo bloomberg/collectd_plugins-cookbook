@@ -12,8 +12,8 @@ include_recipe 'collectd_plugins::df'
 include_recipe 'collectd_plugins::interface'
 include_recipe 'collectd_plugins::memory'
 include_recipe 'collectd_plugins::swap'
-include_recipe "collectd_plugins::load"
-include_recipe "collectd_plugins::statsd"
-include_recipe "collectd_plugins::swap"
-include_recipe "collectd_plugins::unixsock"
-include_recipe "collectd_plugins::uptime"
+include_recipe 'collectd_plugins::load'
+include_recipe 'collectd_plugins::statsd'
+include_recipe 'collectd_plugins::swap'
+include_recipe 'collectd_plugins::unixsock'
+include_recipe 'collectd_plugins::uptime'
