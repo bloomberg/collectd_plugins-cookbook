@@ -10,6 +10,7 @@ include_recipe 'collectd::default'
 collectd_plugin 'load' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
+  directory node['collectd']['plugin']['directory']
   options node['collectd-plugins']['load']
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end
