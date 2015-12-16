@@ -7,11 +7,14 @@
 #
 include_recipe 'collectd::default'
 
-module_name = node['collectd-plugins']['python']['module_name']
-if module_name
+if node['collectd-plugins'] and
+   node['collectd-plugins'].key?('python') and
+   node['collectd-plugins']['python'].key?('module_name')
+
+    module_name = node['collectd-plugins']['python']['module_name']
     node['collectd-plugins']['python']['Import'] = module_name
-    node['collectd-plugins']['python']['Module'] = { 'id' => module_name
-                                                   , 'PluginName' => module_name }
+    node['collectd-plugins']['python']['Module'] = 
+                { 'id' => module_name, 'PluginName' => module_name }
 end
 
 collectd_plugin 'python' do
