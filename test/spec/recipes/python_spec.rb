@@ -20,7 +20,10 @@ describe_recipe 'collectd_plugins::python' do
   context 'with options' do
     cached(:chef_run) do
       ChefSpec::SoloRunner.new do |node|
-        node.set['collectd-plugins']['python']['Import'] = 'test_mod'
+        module_name = 'test_mod'
+        node.set['collectd-plugins']['python']['Import'] = module_name
+        node.set['collectd-plugins']['python']['Module'] = { :id => module_name,
+                                                             :PluginName => module_name }
       end.converge(described_recipe)
     end
 
