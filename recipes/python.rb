@@ -9,12 +9,11 @@ include_recipe 'collectd::default'
 
 if node['collectd-plugins'] and
    node['collectd-plugins'].key?('python') and
-   node['collectd-plugins']['python'].key?('module_name')
+   node['collectd-plugins']['python'].key?('Import')
 
-    module_name = node['collectd-plugins']['python']['module_name']
-    node['collectd-plugins']['python']['Import'] = module_name
-    node['collectd-plugins']['python']['Module'] = 
-                { 'id' => module_name, 'PluginName' => module_name }
+    module_name = node['collectd-plugins']['python']['Import']
+    node.default['collectd-plugins']['python']['Module'] = 
+                { :id => module_name, :PluginName => module_name }
 end
 
 collectd_plugin 'python' do

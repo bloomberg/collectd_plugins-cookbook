@@ -20,7 +20,7 @@ describe_recipe 'collectd_plugins::python' do
   context 'with options' do
     cached(:chef_run) do
       ChefSpec::SoloRunner.new do |node|
-        node.set['collectd-plugins']['python']['module_name'] = 'test_mod'
+        node.set['collectd-plugins']['python']['Import'] = 'test_mod'
       end.converge(described_recipe)
     end
 
@@ -30,7 +30,7 @@ describe_recipe 'collectd_plugins::python' do
       .with(user: 'collectd', group: 'collectd')
       .with(options: { 'Import' => 'test_mod', 
                        'Module' => { 'id' => 'test_mod',   
-                                     'PluginName' => 'test_mod' })
+                                     'PluginName' => 'test_mod' }})
     end
     it { chef_run }
   end
