@@ -11,4 +11,3 @@ supports 'centos', '>= 5.8'
 supports 'redhat', '>= 5.8'
 
 depends 'collectd', '~> 2.0'
-depends 'poise', '~> 2.2'
