@@ -7,10 +7,10 @@
 #
 include_recipe 'collectd::default'
 
-collectd_plugin 'amqp' do
+collectd_plugin 'python' do
   user node['collectd']['service_user']
   group node['collectd']['service_group']
   directory node['collectd']['service']['config_directory']
-  options node['collectd-plugins']['amqp']
+  options node['collectd-plugins']['python']
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end
