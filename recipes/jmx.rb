@@ -14,6 +14,6 @@ collectd_plugin_file 'jmx' do
   plugin_instance_name node['collectd-plugins']['jmx']['plugin_instance_name']
   cookbook node['collectd-plugins']['jmx']['cookbook']
   source node['collectd-plugins']['jmx']['source']
-  variables node['collectd-plugins']['jmx']['variables'].merge( 'hostname' => node['fqdn'] )
+  variables node['collectd-plugins']['jmx']['variables'].merge('hostname' => node['fqdn'])
   notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
 end
