@@ -11,7 +11,7 @@ include_recipe 'collectd::default'
 # This recipe will create a collectd_plugin_file for each jmx 'instance' that
 # has been configured in node. Service user, group, and directory are reused,
 # but individual jmx instances set their cookbook, source, and variable hashes
-# seperately. 
+# seperately
 
 node['collectd_plugins']['jmx'].each do |instance, config|
   collectd_plugin_file "jmx_#{instance}_config" do
