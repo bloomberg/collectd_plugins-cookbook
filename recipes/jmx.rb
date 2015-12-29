@@ -12,17 +12,18 @@ include_recipe 'collectd::default'
 # has been configured in node. Service user, group, and directory are reused,
 # but individual jmx instances set their cookbook, source, and variable hashes
 # seperately
+unless node['collectd_plugins']['jmx'].nil?
+  node['collectd_plugins']['jmx'].each do |instance, config|
+    collectd_plugin_file "jmx_#{instance}_config" do
+      user node['collectd']['service_user']
+      group node['collectd']['service_group']
+      directory node['collectd']['service']['config_directory']
 
-node['collectd_plugins']['jmx'].each do |instance, config|
-  collectd_plugin_file "jmx_#{instance}_config" do
-    user node['collectd']['service_user']
-    group node['collectd']['service_group']
-    directory node['collectd']['service']['config_directory']
-
-    plugin_instance_name instance
-    cookbook  config['cookbook']
-    source    config['source']
-    variables config['variables'].merge('hostname' => node['fqdn'])
-    notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
+      plugin_instance_name instance
+      cookbook  config['cookbook']
+      source    config['source']
+      variables config['variables'].merge('hostname' => node['fqdn'])
+      notifies :restart, "collectd_service[#{node['collectd']['service_name']}]", :delayed
+    end
   end
 end
