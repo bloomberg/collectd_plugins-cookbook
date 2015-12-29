@@ -13,4 +13,4 @@ default['collectd-plugins']['interface']['ignore_selected'] = true
 default['collectd-plugins']['df']['report_reserved'] = false
 default['collectd-plugins']['df']['ignore_selected'] = true
 default['collectd-plugins']['df']['f_s_type'] = %w(proc sysfs fusectl debugfs securityfs devtmpfs devpts tmpfs)
-default['collectd_plugins']['jmx'] = []
+default['collectd_plugins']['jmx'] = {}
