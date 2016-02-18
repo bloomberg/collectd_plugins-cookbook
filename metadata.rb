@@ -4,7 +4,7 @@ maintainer_email 'jbellone@bloomberg.net'
 license 'Apache 2.0'
 description 'Application cookbook which configures collectd plugins.'
 long_description 'Application cookbook which configures collectd plugins.'
-version '2.1.0'
+version '2.1.1'
 source_url 'https://github.com/bloomberg/collectd_plugins-cookbook'
 issues_url 'https://github.com/bloomberg/collectd_plugins-cookbook/issues'
 
