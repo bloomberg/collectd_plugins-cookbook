@@ -14,7 +14,7 @@ include_recipe 'collectd::default'
 # seperately
 unless node['collectd_plugins']['python_file'].empty?
   node['collectd_plugins']['python_file'].each do |instance, config|
-    collectd_plugin_file "python_file" do
+    collectd_plugin_file 'python_file' do
       user node['collectd']['service_user']
       group node['collectd']['service_group']
       directory node['collectd']['service']['config_directory']
